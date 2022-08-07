@@ -1,0 +1,144 @@
+<mat-card class="card">
+  <form #carbonForm="ngForm" (ngSubmit)="onSubmit(carbonForm)">
+    <mat-tab-group class="container" #tabgroup>
+      <mat-tab label="Combustível">
+        <br />
+        <h4 style="text-align: center">
+          <b>Emissão de CO2 por consumo de combustível</b>
+        </h4>
+        <div class="tabfields">
+          <mat-form-field appearance="fill">
+            <mat-label>Escolha um veículo</mat-label>
+            <mat-select id="car_id" name="car_id" #name="ngModel" ngModel>
+              <mat-option *ngFor="let car of cars" [value]="car.value">
+                {{ car.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br />
+          <mat-form-field appearance="fill">
+            <mat-label>Km/Mês</mat-label>
+            <input
+              matInput
+              type="number"
+              id="km"
+              name="km"
+              #name="ngModel"
+              ngModel
+            />
+          </mat-form-field>
+        </div>
+        <div class="tabbutton">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="tabgroup.selectedIndex = 1"
+          >
+            Próximo
+          </button>
+        </div>
+      </mat-tab>
+      <mat-tab label="Eletricidade">
+        <br />
+        <h4 style="text-align: center">
+          <b>Emissão de CO2 por consumo de energia elétrica</b>
+        </h4>
+        <div class="tabfields">
+          * Uma pessoa consome em média 100Kwh por mês.
+          <br /><br />
+          <mat-form-field appearance="fill">
+            <mat-label>Kwh/Mês</mat-label>
+            <input
+              matInput
+              type="number"
+              id="eletricity"
+              name="eletricity"
+              #name="ngModel"
+              ngModel
+            />
+          </mat-form-field>
+        </div>
+        <div class="tabbutton">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="tabgroup.selectedIndex = 2"
+            style="margin-left: 10px"
+          >
+            Próximo
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="tabgroup.selectedIndex = 0"
+          >
+            Anterior
+          </button>
+        </div>
+      </mat-tab>
+      <mat-tab label="Gás de Cozinha">
+        <br />
+        <h4 style="text-align: center">
+          <b>Emissão de CO2 por consumo de gás de cozinha</b>
+        </h4>
+        <div class="tabfields">
+          * Uma pessoa consome em média 0.5 botijão de gás por mês.
+          <br /><br />
+          <mat-form-field appearance="fill">
+            <mat-label>Botijão/Mês</mat-label>
+            <input
+              matInput
+              type="number"
+              id="gas"
+              name="gas"
+              #name="ngModel"
+              ngModel
+            />
+          </mat-form-field>
+        </div>
+        <div class="tabbutton">
+          <button
+            mat-raised-button
+            color="accent"
+            type="submit"
+            style="margin-left: 10px"
+            (click)="tabgroup.selectedIndex = 3"
+          >
+            Resultado
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="tabgroup.selectedIndex = 1"
+          >
+            Anterior
+          </button>
+        </div>
+      </mat-tab>
+      <mat-tab label="Resultado" disabled>
+        <br />
+        <h4 style="text-align: center"><b>Resultado</b></h4>
+        <div class="tabfields">
+          <h4>
+            Árvores necessárias por Ano: <b>{{ result.arvores }}</b
+            ><br />
+            Total de TCO2 por mês: <b>{{ result.total_tco2_mes }}</b
+            ><br />
+            Total de TCO2 por ano: <b>{{ result.total_tco2_ano }}</b>
+          </h4>
+          <br />
+          <mat-icon>forest</mat-icon>
+        </div>
+        <div class="tabbutton">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="tabgroup.selectedIndex = 2"
+          >
+            Anterior
+          </button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </form>
+</mat-card>

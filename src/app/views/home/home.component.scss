@@ -1,0 +1,24 @@
+.card {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  align-items: center;
+  background-color: #fff;
+}
+
+.tabfields {
+  padding: 20px 50px 20px 50px;
+  min-height: 150px;
+  min-width: 400px;
+  text-align: center;
+}
+
+.tabbutton {
+  display: flex;
+  flex-direction: row-reverse;
+}
