@@ -42,7 +42,6 @@ export class HomeComponent implements OnInit {
     }
     this.apiService.addCarbon(carbonForm.value)
       .subscribe(data => {
-        console.log(data)
         this.result = data
       })
   }

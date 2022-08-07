@@ -17,4 +17,8 @@ export class ApiService {
     return this.http.post(this.baseURL + 'api/carbon/add', body,{'headers':headers})
   }
 
+  getCarbons(): Observable<any> {
+    return this.http.get(this.baseURL + 'api/carbon')
+  }
+
 }
