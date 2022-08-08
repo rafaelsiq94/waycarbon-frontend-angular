@@ -1,7 +1,13 @@
-<mat-toolbar color="primary">
+<p>
+  <mat-toolbar color="primary">
   <span style="margin-right: 20px;">WayCarbon</span>
   <span style="margin-right: 20px;">|</span>
   <span style="margin-right: 20px;" routerLink="/" style="cursor: pointer;">Calculadora de Tco2</span>
   <span style="margin-right: 20px; margin-left: 20px;">-</span>
   <span routerLink="/table" style="cursor: pointer;">Registros</span>
+  <span class="example-spacer"></span>
+  <button (click)="logout()" mat-icon-button class="example-icon" aria-label="Sair" matTooltip="Sair">
+   <mat-icon>logout</mat-icon>
+ </button>
 </mat-toolbar>
+</p>

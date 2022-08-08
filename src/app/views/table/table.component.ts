@@ -13,7 +13,8 @@ interface Carbons {
   total_tco2_monthly: string,
   total_tco2_yearly: string,
   trees: number,
-  creation_date: string
+  creation_date: string,
+  email: string
 }
 
 @Component({
@@ -22,7 +23,7 @@ interface Carbons {
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  displayedColumns: string[] = ['Id','Tipo do Carro', 'Km/Mês', 'Eletricidade/Mês', 'Gás/Mês', 'Tco2/Mês', 'Tco2/Ano', 'Árvores', 'Data'];
+  displayedColumns: string[] = ['Email','Tipo do Carro', 'Km/Mês', 'Eletricidade/Mês', 'Gás/Mês', 'Tco2/Mês', 'Tco2/Ano', 'Árvores', 'Data'];
 
   dataSource = new MatTableDataSource<Carbons> ();
 

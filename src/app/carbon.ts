@@ -4,7 +4,8 @@ export class Carbon {
     public car_id?: number,
     public km?: number,
     public gas?: number,
-    public eletricity?: number
+    public eletricity?: number,
+    public email?: string,
   ) {  }
 
 }

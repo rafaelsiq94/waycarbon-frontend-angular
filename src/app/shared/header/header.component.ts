@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleApiService, UserInfo } from '../../google-api.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  userInfo?: UserInfo
+
+  constructor(private readonly googleApi: GoogleApiService) {
+    googleApi.userProfileSubject.subscribe(info => {
+      this.userInfo = info
+    })
+  }
+
+  isLoggedIn(): boolean {
+    return this.googleApi.isLoggedIn()
+  }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.googleApi.signOut()
   }
 
 }
